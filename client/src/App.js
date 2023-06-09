@@ -4,7 +4,9 @@ import Footer from './components/Footer/Footer';
 import Landingpage from './screeens/Landingpage/Landingpage';
 import Loginpage from './screeens/Loginpage/Loginpage';
 import Registerpage from './screeens/Registerpage/Registerpage';
-import {BrowserRouter, Route, Routes} from "react-router-dom"
+import { BrowserRouter,Routes,Route} from "react-router-dom"
+
+// import {  BrowserRouter, Route} from "react-router-dom"
 import Mynotes from './screeens/Mynotes/Mynotes';
 
 
@@ -38,5 +40,24 @@ const App = ()=>(
      <Footer />
     </BrowserRouter>
 );
+
+
+// const App = ()=>(
+
+//   <BrowserRouter>
+//    <Header />
+//       <main>
+          
+//             <Route path="/" component={Landingpage} exact />
+//             <Route path="/login" component={Loginpage}  />
+//             <Route path="/register" component={Registerpage}  />
+//             <Route path='/Mynotes' component = {Mynotes} />
+            
+          
+          
+//       </main>
+//    <Footer />
+//   </BrowserRouter>
+// );
 
 export default App;

@@ -5,15 +5,21 @@ import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 
 const Header = () => {
+   const history = useNavigate();
+
   return (
     
       <Navbar bg="primary" expand="lg" variant="dark">
         <Container>
         <Navbar.Brand >
-         <Link className='nav-link' to="/">OPNotes</Link> 
+         {/* <NavLink className='nav-link'  to="/">OPNotes</NavLink>  */}
+         {/* <Nav.Link href="/">OpNotes</Nav.Link> */}
+         <Link className='nav-link' to="/">
+                  Opnotes
+              </Link>
          {/* OpNotes */}
         </Navbar.Brand> 
         <Navbar.Toggle aria-controls="navbarScroll" />
@@ -46,7 +52,12 @@ const Header = () => {
                 Another action
               </NavDropdown.Item> */}
               <NavDropdown.Divider />
-              <NavDropdown.Item href="#action5">
+              <NavDropdown.Item 
+               onClick = {()=>{
+                localStorage.removeItem("userInfo");
+                history('/');
+               }}
+              >
                logout
               </NavDropdown.Item>
             </NavDropdown>
@@ -64,6 +75,6 @@ const Header = () => {
     
     
   )
-}
+};
 
 export default Header

@@ -7,6 +7,10 @@ import { Link } from 'react-router-dom'
 import "./Loginpage.css"
 import axios from 'axios'
 import Errormessage from '../../components/Errormessage'
+import { useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
+
+
 
 const Loginpage = () => {
 
@@ -14,13 +18,18 @@ const Loginpage = () => {
     const [password, setPassword] = useState("")
     const [error, setError] = useState(false)
     const [loading, setLoading] = useState(false)
+    const history = useNavigate();
 
-    // useEffect(() => {
+   useEffect(() => {
+        const userInfo = localStorage.getItem("userInfo");
+  
+        if(userInfo){
+          history("/Mynotes");
+        }
       
-    
-      
-    // }, [third])
-    
+        
+      }, [history]);
+  
 
     const submitHandler= async(e)=>{
         e.preventDefault()
@@ -41,9 +50,10 @@ const Loginpage = () => {
             config
             );
 
-            setLoading(false)
+           
             console.log(data)
             localStorage.setItem("userInfo",JSON.stringify(data));
+            setLoading(false)
            
         } catch (error) {
             setError(error.response.data.message);
