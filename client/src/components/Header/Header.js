@@ -5,10 +5,24 @@ import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
-import {Link, useNavigate} from "react-router-dom";
+import { useDispatch, useSelector } from 'react-redux';
+import {Link ,useNavigate} from "react-router-dom";
+import { logout } from '../../actions/userActions';
 
 const Header = () => {
    const history = useNavigate();
+   const dispatch = useDispatch();
+
+   const userLogin = useSelector((state)=> state.userLogin);
+   const {userInfo} = userLogin;
+
+   const logoutHandler=()=>{
+    dispatch(logout());
+    // if(userInfo){
+    //   hi
+    // }
+    history('/');
+   }
 
   return (
     
@@ -53,10 +67,7 @@ const Header = () => {
               </NavDropdown.Item> */}
               <NavDropdown.Divider />
               <NavDropdown.Item 
-               onClick = {()=>{
-                localStorage.removeItem("userInfo");
-                history('/');
-               }}
+               onClick = {logoutHandler}
               >
                logout
               </NavDropdown.Item>

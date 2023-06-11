@@ -1,14 +1,16 @@
 import React, { useEffect,useState } from 'react'
-import axios from 'axios'
+// import axios from 'axios'
 import Mainscreen from '../../components/Mainscreen'
 import { Button, Card , Badge,Accordion} from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 // import notes from '../../data/notes'
 
 const Mynotes = () => {
-const [notes,setNotes] = useState([])
- 
-
+const [notes,setNotes] = useState([]);
+// const [error,setError] = useState(false);
+// useEffect(()=>{
+// fetchNotes();
+// },[])
 const deletehandler=(id)=>{
     if(window.confirm("are you confirm")) {
 
@@ -16,15 +18,38 @@ const deletehandler=(id)=>{
 
   }
     
-const fetchNotes = async() =>{
-    const {data}  = await axios.get('/api/notes');
-    setNotes(data);
-}
+// const fetchNotes = async() =>{
+//     const {data}  = await axios.get('/api/notes');
+//     setNotes(data);
+// }
 // console.log(notes);
 
-useEffect(()=>{
-  fetchNotes();
-},[])
+// useEffect(()=>{
+//   fetchNotes();
+// },[])
+
+
+// const fetchNotes = async(e) =>{
+  
+//   const userInfo = localStorage.getItem("userInfo");
+//   try{
+//     const config = {
+//       headers:{
+        
+//         Authorization:`Bearer ${userInfo.token}`
+//       }
+//     }
+//     const {data}  = await axios.get('/api/notes',config);
+//     setNotes(data);
+//   }catch(error){
+//     setError(error.response.data.message);
+//   }
+  
+  
+// }
+// console.log(notes);
+
+
   
   return (
     <div>

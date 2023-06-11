@@ -9,6 +9,8 @@ import axios from 'axios'
 import Errormessage from '../../components/Errormessage'
 import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
+import {useDispatch, useSelector} from "react-redux";
+import { login } from '../../actions/userActions'
 
 
 
@@ -16,50 +18,58 @@ const Loginpage = () => {
 
     const [email,setEmail] = useState("")
     const [password, setPassword] = useState("")
-    const [error, setError] = useState(false)
-    const [loading, setLoading] = useState(false)
+    // const [error, setError] = useState(false)
+    // const [loading, setLoading] = useState(false)
+    const dispatch = useDispatch()
     const history = useNavigate();
 
+    const userLogin=useSelector((state)=>state.userLogin);
+    const { userInfo,error,loading } = userLogin;
+
+    
    useEffect(() => {
-        const userInfo = localStorage.getItem("userInfo");
+        // const userInfo = localStorage.getItem("userInfo");
+        
   
         if(userInfo){
           history("/Mynotes");
         }
       
         
-      }, [history]);
+      }, [history,userInfo]);
   
 
     const submitHandler= async(e)=>{
         e.preventDefault()
+        dispatch(login(email,password));
+
        
-        try {
-            const config = {
-                headers:{
-                    "Content-type":"application/json"
-                }
-            }
+    //     try {
+    //         const config = {
+    //             headers:{
+    //                 "Content-type":"application/json"
+    //             }
+    //         }
 
-            setLoading(true)
+    //         setLoading(true)
 
-            const {data}  = await axios.post('/api/users/login',{
-                email,
-                password
-            },
-            config
-            );
+    //         const {data}  = await axios.post('/api/users/login',{
+    //             email,
+    //             password
+    //         },
+    //         config
+    //         );
 
            
-            console.log(data)
-            localStorage.setItem("userInfo",JSON.stringify(data));
-            setLoading(false)
+    //         console.log(data)
+    //         localStorage.setItem("userInfo",JSON.stringify(data));
+    //         setLoading(false)
            
-        } catch (error) {
-            setError(error.response.data.message);
-            setLoading(false)
-        }
-    }
+    //     } catch (error) {
+    //         setError(error.response.data.message);
+    //         setLoading(false)
+    //     }
+     };
   return (
     <Mainscreen title ="Login">
         <div  className="loginContainer">
