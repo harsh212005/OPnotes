@@ -4,10 +4,13 @@ import Footer from './components/Footer/Footer';
 import Landingpage from './screeens/Landingpage/Landingpage';
 import Loginpage from './screeens/Loginpage/Loginpage';
 import Registerpage from './screeens/Registerpage/Registerpage';
+import SingleNote from './screeens/SingleNote'
 import { BrowserRouter,Routes,Route} from "react-router-dom"
 
 // import {  BrowserRouter, Route} from "react-router-dom"
 import Mynotes from './screeens/Mynotes/Mynotes';
+import Createnote from './screeens/CreateNote/Createnote';
+import { useState } from 'react';
 
 
 // function App() { 
@@ -23,23 +26,28 @@ import Mynotes from './screeens/Mynotes/Mynotes';
 //     </div>
 //   );
 // };
-const App = ()=>(
+const App = ()=>{
+const [search,setSearch] = useState("");
 
+    
+return(
     <BrowserRouter>
-     <Header />
+     <Header setSearch={setSearch}/>
         <main>
             <Routes>
               <Route path="/" element={<Landingpage/>} exact />
-              <Route path="/login" element={<Loginpage/>} exact />
-              <Route path="/register" element={<Registerpage/>} exact />
-              <Route path='/Mynotes' element = {<Mynotes/>} />
+              <Route path="/login" element={<Loginpage/>}  />
+              <Route path="/register" element={<Registerpage/>} />
+              <Route path="/createnote" element={<Createnote/>}  />
+              <Route path="/note/:id" element={<SingleNote/>}  />
+              <Route path='/Mynotes' element = {<Mynotes  />} />
               
             </Routes>
             
         </main>
      <Footer />
-    </BrowserRouter>
-);
+    </BrowserRouter>)
+};
 
 
 // const App = ()=>(
