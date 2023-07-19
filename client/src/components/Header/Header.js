@@ -26,13 +26,13 @@ const Header = ({setSearch}) => {
 
   return (
     
-      <Navbar bg="primary" expand="lg" variant="dark">
+      <Navbar bg="dark" expand="lg" variant="dark">
         <Container>
         <Navbar.Brand >
          {/* <NavLink className='nav-link'  to="/">OPNotes</NavLink>  */}
          {/* <Nav.Link href="/">OpNotes</Nav.Link> */}
          <Link className='nav-link' to="/">
-                  Opnotes
+                  OpNotes
               </Link>
          {/* OpNotes */}
         </Navbar.Brand> 
@@ -61,8 +61,8 @@ const Header = ({setSearch}) => {
               </Link>
             </Nav.Link>
             {/* <Nav.Link href="#action2">Link</Nav.Link> */}
-            <NavDropdown className='nav-link' title="Harsh Singhal" id="navbarScrollingDropdown">
-              <NavDropdown.Item href="#action3">My profile</NavDropdown.Item>
+            {userInfo?<NavDropdown className='nav-link' title={userInfo?.name} id="navbarScrollingDropdown">
+              <NavDropdown.Item href="/profile">My profile</NavDropdown.Item>
               {/* <NavDropdown.Item href="#action4">
                 Another action
               </NavDropdown.Item> */}
@@ -72,7 +72,13 @@ const Header = ({setSearch}) => {
               >
                logout
               </NavDropdown.Item>
-            </NavDropdown>
+            </NavDropdown>:<Nav>
+                <Nav.Link href="/login">
+                  <Link className='nav-link' to="/login">
+                      Login
+                  </Link>
+                </Nav.Link>
+              </Nav>}
             {/* <Nav.Link href="#" disabled>
               Link
             </Nav.Link> */} 

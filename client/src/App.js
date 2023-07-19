@@ -11,6 +11,7 @@ import { BrowserRouter,Routes,Route} from "react-router-dom"
 import Mynotes from './screeens/Mynotes/Mynotes';
 import Createnote from './screeens/CreateNote/Createnote';
 import { useState } from 'react';
+import ProfilePage from './screeens/ProfilePage/ProfilePage';
 
 
 // function App() { 
@@ -37,6 +38,8 @@ return(
             <Routes>
               <Route path="/" element={<Landingpage/>} exact />
               <Route path="/login" element={<Loginpage/>}  />
+              <Route path="/profile" element={<ProfilePage/>}  />
+
               <Route path="/register" element={<Registerpage/>} />
               <Route path="/createnote" element={<Createnote/>}  />
               <Route path="/note/:id" element={<SingleNote/>}  />

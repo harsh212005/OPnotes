@@ -83,11 +83,11 @@ const deletehandler=(id)=>{
   return (
     <div>
        <Mainscreen title=
-      //  {`Welcome back ${userInfo.name}`}
-       "Welcome back harsh singhal"
+       {`Welcome back ${userInfo?.name}`}
+      //  "Welcome back harsh singhal"
        >
          <Link to="/createnote" style={{textDecoration:"none"}}>
-            <Button style={{marginLeft:10,marginBottom:6}} size="sm">
+            <Button variant='dark' style={{marginLeft:10,marginBottom:6}} size="sm">
                 create newnote
             </Button>
           </Link>
@@ -124,7 +124,7 @@ const deletehandler=(id)=>{
                           </span>
                           {/* </Accordion.Header> */}
                           <div>
-                            <Button href ={`/note/${note._id}`}>Update</Button>
+                            <Button  variant = 'success' href ={`/note/${note._id}`}>Update</Button>
                             <Button variant='warning' className='mx-2' onClick={() => deletehandler(note._id)}>Delete</Button>
                           </div>
                       </Card.Header>

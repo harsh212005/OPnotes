@@ -2,13 +2,13 @@
     min-height: 93vh;
     display: flex;
     align-items: center;
-    background-image: url("../../background2.jpg");
+    background-image: url("../../background1.jpg");
     background-position: center;
     background-size: cover;
 }
 
 .title{
-    font-size: 72px;
+    font-size: 60px;
 }
 .subtitle {
     font-size: 20px;
@@ -19,7 +19,8 @@
     text-align: center;
 }
 .buttonContain{
-    margin-top: 50px;
+    margin-top: 200px;
+    margin-left: 30px;
     display:flex;
     justify-content: space-evenly;
 }

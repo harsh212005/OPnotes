@@ -123,7 +123,7 @@ const SingleNote = () => {
               />
             </Form.Group>
             {loading && <Loading size={50} />}
-            <Button variant="primary" type="submit">
+            <Button variant="success" type="submit">
               Update Note
             </Button>
             <Button
